@@ -13,7 +13,7 @@ mongoose
   .connect(process.env.MONGO_URL, { useNewUrlParser: true })
   .then((e, err) => {
     if(err) console.log('check out the connection to mongodb');
-    console.log('connected to mongodb');
+    console.log('connected to mongodb', 'start using the API: http://localhost:9000/api/v0/');
   });
 
 app.use(morgan('common', { stream: fs.createWriteStream('./log.txt', { flags: 'a' }) }));

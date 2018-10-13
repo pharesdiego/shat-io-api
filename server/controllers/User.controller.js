@@ -12,7 +12,7 @@ const getUsers = async (req, res) => {
 
 const getUserById = async (req, res) => {
   let user = await User
-    .findById(req.params.id, 'username')
+    .findById(req.params.id, 'username rooms')
     .exec();
   if(!user) throw new Error(err.ERROR_FINDING_USER_BY_ID);
 

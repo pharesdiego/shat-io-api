@@ -41,7 +41,7 @@ const createRoom = async (req, res) => {
   let roomId = mongoose.Types.ObjectId();
 
   let room = await Room({
-    name: roomId,
+    name: name || roomId,
     _id: roomId,
     users: [creator._id, target._id]
   });
