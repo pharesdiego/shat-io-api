@@ -1,6 +1,6 @@
-const router     = require('express').Router(),
-      { catchErrors } = require('./../errors/handleErrors'),
-      UserController = require('./../controllers/User.controller');
+const router = require('express').Router(),
+  { catchErrors } = require('./../errors/handleErrors'),
+  UserController = require('./../controllers/User.controller');
 
 router
   .route('/users')

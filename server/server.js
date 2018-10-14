@@ -1,27 +1,34 @@
-const express      = require('express'),
-      app          = express(),
-      morgan       = require('morgan'),
-      fs           = require('fs'),
-      apiRoutes    = require('./routes/ApiRoutes.routes'),
-      mongoose     = require('mongoose'),
-      dotenv       = require('dotenv'),
-      bodyParser   = require('body-parser');
+const express = require('express'),
+  app = express(),
+  morgan = require('morgan'),
+  fs = require('fs'),
+  apiRoutes = require('./routes/ApiRoutes.routes'),
+  mongoose = require('mongoose'),
+  dotenv = require('dotenv'),
+  bodyParser = require('body-parser');
 
 dotenv.config();
 
 mongoose
-  .connect(process.env.MONGO_URL, { useNewUrlParser: true })
+  .connect(
+    process.env.MONGO_URL,
+    { useNewUrlParser: true }
+  )
   .then((e, err) => {
-    if(err) console.log('check out the connection to mongodb');
+    if (err) console.log('check out the connection to mongodb');
     console.log('connected to mongodb', 'start using the API: http://localhost:9000/api/v0/');
   });
 
-app.use(morgan('common', { stream: fs.createWriteStream('./log.txt', { flags: 'a' }) }));
+app.use(
+  morgan('common', {
+    stream: fs.createWriteStream('./log.txt', { flags: 'a' })
+  })
+);
 app.use(bodyParser());
 app.use((req, res, next) => {
   res.set({
     'Access-Control-Allow-Origin': '*'
-  })
+  });
   next();
 });
 

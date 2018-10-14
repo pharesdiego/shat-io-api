@@ -1,6 +1,6 @@
 const router = require('express').Router(),
-      { catchErrors } = require('./../errors/handleErrors'),
-      RoomControllers = require('./../controllers/Room.controller');
+  { catchErrors } = require('./../errors/handleErrors'),
+  RoomControllers = require('./../controllers/Room.controller');
 
 router
   .route('/rooms')
@@ -12,8 +12,6 @@ router
   .get(catchErrors(RoomControllers.getRoomById))
   .post(catchErrors(RoomControllers.updateRoomById));
 
-router
-  .route('/rooms/:roomId/messages')
-  .get(catchErrors(RoomControllers.getRoomMessages));
+router.route('/rooms/:roomId/messages').get(catchErrors(RoomControllers.getRoomMessages));
 
 module.exports = router;

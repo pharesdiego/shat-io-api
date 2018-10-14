@@ -1,6 +1,6 @@
 const router = require('express').Router(),
-      { catchErrors } = require('./../errors/handleErrors'),
-      MessageController = require('./../controllers/Message.controller');
+  { catchErrors } = require('./../errors/handleErrors'),
+  MessageController = require('./../controllers/Message.controller');
 
 router
   .route('/messages')
